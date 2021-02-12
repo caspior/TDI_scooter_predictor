@@ -60,7 +60,7 @@
     width: 80%; }
   .column,
   .columns {
-    margin-left: 4%; }
+    margin-left: 0; }
   .column:first-child,
   .columns:first-child {
     margin-left: 0; }
@@ -351,7 +351,7 @@ form {
 p,
 ul,
 ol {
-  margin-bottom: 0.75rem; }
+  margin-bottom: 0.0rem; }
 
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

@@ -113,7 +113,7 @@ app.layout = html.Div(
                     ],
                 ),               
                 html.Div(
-                    className="eight columns card-left",
+                    className="nine columns card-left",
                     children=[
                         html.Div(
                             className="bg-white",
@@ -125,7 +125,7 @@ app.layout = html.Div(
                     ],
                 ),
                 html.Div(
-                    className="four columns card",
+                    className="three columns card",
                     children=[
                         html.Div(
                             className="bg-white user-control",
@@ -173,7 +173,7 @@ def display_choropleth(direction, date_picker, AMPM):
                                color_continuous_scale="ylorrd",
                                mapbox_style="stamen-toner", #"stamen-terrain", "stamen-toner"
                                zoom=10.5, center = {"lat": 30.26722, "lon": -97.74306},
-                               opacity=0.6
+                               opacity=0.6,
                               )
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0},coloraxis_colorbar=dict(
         title="Trips", tickvals=[0,1,2,3,4], ticktext=["0", "10", "100", "1,000", "10,000"]))
