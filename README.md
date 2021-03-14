@@ -13,7 +13,7 @@ The app using scooter sharing trip history and weather data to predict the numbe
 ### Predictive mode
 * The predictive model is based on [Statsmodel GLM Poisson regression](https://www.statsmodels.org/stable/glm.html).
 * The explanatory variables include the month of the year, the day of the week, and the average daily temperature, wind speed, and precipitation.
-* See [ML.py](https://github.com/caspior/scooter_predictor/blob/master/ML.py) for full script.
+* See [model.py](https://github.com/caspior/scooter_predictor/blob/master/model.py) for full script.
 
 ### Web-app
 * The web app created using the [Dash](https://dash.plotly.com/) library with [Plotly](https://plotly.com/python/) visualizations.
