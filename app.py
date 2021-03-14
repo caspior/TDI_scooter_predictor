@@ -16,7 +16,7 @@ app = dash.Dash(
 )
 server = app.server
 
-data = dill.load(open('data.dill', 'rb'))
+data = dill.load(open('new_data.dill', 'rb'))
 tracts = dill.load(open('austin.json', 'rb'))
 tract_list = pd.DataFrame({'tract': data.GeoID.sort_values(ascending = True).unique()})
 
@@ -53,9 +53,9 @@ app.layout = html.Div(
                                         html.H6("Date"),
                                         dcc.DatePickerSingle(
                                             id='date_picker',
-                                            date=date.today(),
-                                            min_date_allowed=date(2018, 4, 3),
-                                            max_date_allowed=(date.today()+timedelta(6))
+                                            date=max(data.Date)-timedelta(15),
+                                            min_date_allowed=min(data.Date),
+                                            max_date_allowed=max(data.Date)
                                         ),
                                     ],
                                 ),
@@ -72,19 +72,6 @@ app.layout = html.Div(
                                         ),
                                     ],
                                 ),
-                                html.Div(
-                                    className="padding-top-bot",
-                                    children=[
-                                        html.H6("Day split"),
-                                        dcc.Dropdown(id="AMPM",
-                                            options=[
-                                                {'label': 'AM', 'value': 'AM'},
-                                                {'label': 'PM', 'value': 'PM'}
-                                            ],
-                                            value='AM'
-                                        ),
-                                    ],
-                                ),
                                 html.Br(),
                                 html.Br(),
                                 html.Br(),
@@ -92,7 +79,15 @@ app.layout = html.Div(
                                     className="padding-top-bot",
                                     children=[
                                         html.H6("Created by OR CASPI"),
-                                        html.H6("orcaspi@gmail.com")
+                                        dcc.Link("orcaspi@gmail.com", href="mailto:orcaspi@gmail.com", target="_blank")
+                                    ],
+                                ),
+                                html.Br(),
+                                html.Div(
+                                    className="padding-top-bot",
+                                    children=[
+                                        html.H6("Learn how I did it"),
+                                        dcc.Link("Click here", href="https://github.com/caspior/scooter_predictor", target="_blank")
                                     ],
                                 ),
                             ],
@@ -154,14 +149,12 @@ app.layout = html.Div(
 @app.callback(
     Output("choropleth", "figure"), 
     [Input("direction", "value"),
-     Input("date_picker", "date"),
-     Input("AMPM", "value")]
+     Input("date_picker", "date")]
 )
 
-def display_choropleth(direction, date_picker, AMPM):
+def display_choropleth(direction, date_picker):
        
     df = data[data['Date']==date_picker].copy()
-    df = df[df['AMPM']==AMPM].copy()
     zero = df[df[direction]==0].copy()
     zero['log'] = 0
     non_zero = df[df[direction]>0].copy()
