@@ -7,6 +7,7 @@ The app using scooter sharing trip history and weather data to predict the numbe
 * Trip logs were retrieved from the [City of Austin's open data portal](https://data.austintexas.gov/Transportation-and-Mobility/Shared-Micromobility-Vehicle-Trips/7d8e-dm7r).
 * Historical and forecasted weather data retrieved from the [Visual Crossing weather api](https://www.visualcrossing.com/weather-api).
 * Information regarding census tracts in Travis County obtained with the [U.S. Census' python library](https://pypi.org/project/census/).
+* Polygons for Travis County's census tracts were downloaded from [TIGER](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) and converted to json file.
 * See [get_data.py]() for full script.
 
 ### Predictive mode
