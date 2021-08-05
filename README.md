@@ -10,7 +10,7 @@ The app using scooter sharing trip history and weather data to predict the numbe
 * Polygons for Travis County's census tracts were downloaded from [TIGER](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) and converted to json file.
 * See [get_data.py](https://github.com/caspior/scooter_predictor/blob/master/get_data.py) for full script.
 
-### Predictive mode
+### Predictive model
 * The predictive model is based on [Statsmodel GLM Poisson regression](https://www.statsmodels.org/stable/glm.html).
 * The explanatory variables include the month of the year, the day of the week, and the average daily temperature, wind speed, and precipitation.
 * See [model.py](https://github.com/caspior/scooter_predictor/blob/master/model.py) for full script.
